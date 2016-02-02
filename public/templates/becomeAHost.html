@@ -1,0 +1,28 @@
+<div class="container" >
+<form  ng-submit = "vm.createInfo()">
+
+
+    <label>House Type</label>
+    <br>
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-primary active">
+        <input ng-model="vm.hostModel.apartment" type="radio" name="options" id="option1" autocomplete="off" checked>Apartment
+      </label>
+      <label class="btn btn-primary">
+        <input ng-model="vm.hostModel.house" type="radio" name="options" id="option2" autocomplete="off"> House
+      </label>
+      <label class="btn btn-primary">
+        <input ng-model="vm.hostModel.bnb" type="radio" name="options" id="option3" autocomplete="off"> Bed & Breakfast
+      </label>
+      <label class="btn btn-primary">
+        <input ng-model="vm.hostModel.other" type="radio" name="options" id="option4" autocomplete="off"> Other
+      </label>
+    </div>
+    <br>
+    
+
+    </div>
+
+
+
+</form>

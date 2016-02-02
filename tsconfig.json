@@ -32,6 +32,7 @@
         "public/javascript/services/HTTPFactory.ts",
         "public/javascript/services/UserService.ts",
         "routes/userRoutes.ts",
+        "routes/infoRoutes.ts",
         "server.ts",
         "typings/angularjs/angular-resource.d.ts",
         "typings/angularjs/angular-route.d.ts",
