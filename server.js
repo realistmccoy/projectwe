@@ -5,6 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var app = express();
+var mongoose = require('mongoose');
+require('./models/users');
+require('./models/Rental');
+require('./config/passport');
+mongoose.connect(process.env.MONGO_URL);
 app.set('views', './views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -15,6 +20,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('./public'));
 app.use('/scripts', express.static('bower_components'));
+var userRoutes = require('./routes/userRoutes');
+app.use('/api/users', userRoutes);
 app.get('/*', function (req, res, next) {
     if (/.js|.html|.css|templates|javascript/.test(req.path))
         return next({ status: 404, message: 'Not Found' });
@@ -32,8 +39,6 @@ app.use(function (req, res, next) {
 });
 app.use(function (err, req, res, next) {
     res.status(err.status || 500);
-    if (err.name = 'CastError')
-        err.message = 'Invalid ID';
     var error = (app.get('env') === 'development') ? err : {};
     res.send({
         message: err.message,
