@@ -5,8 +5,23 @@ import favicon = require('serve-favicon');
 import logger = require('morgan');
 import cookieParser = require('cookie-parser');
 import bodyParser = require('body-parser');
+import passport = require('passport');
 
 const app = express();
+////////////////////////
+///models////////
+////////////////////
+import mongoose = require('mongoose');
+require('./models/hostModel');
+require('./models/users');
+require('./config/passport');
+
+
+
+
+
+
+mongoose.connect(process.env.MONGO_URL);
 
 // view engine setup
 app.set('views', './views');
@@ -20,8 +35,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+
+
+
+
 app.use(express.static('./public'));
 app.use('/scripts', express.static('bower_components'));
+
+////////////////////////////////
+////////Routes
+////////////////////////////////
+
 
 
 app.get('/*', function(req, res, next) {

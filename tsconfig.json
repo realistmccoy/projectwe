@@ -22,10 +22,15 @@
     "compileOnSave": true,
     "buildOnSave": false,
     "files": [
+        "models/Rental.ts",
+        "models/users.ts",
         "public/javascript/app.ts",
         "public/javascript/controllers/HomeController.ts",
+        "public/javascript/controllers/UserController.ts",
         "public/javascript/services/HomeService.ts",
         "public/javascript/services/HTTPFactory.ts",
+        "public/javascript/services/UserService.ts",
+        "routes/infoRoutes.ts",
         "server.ts",
         "typings/angularjs/angular-resource.d.ts",
         "typings/angularjs/angular-route.d.ts",
@@ -48,6 +53,6 @@
         "typings/tsd.d.ts"
     ],
     "atom": {
-        "rewriteTsconfig": true
+        "rewriteTsconfig": false
     }
 }
