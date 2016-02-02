@@ -11,10 +11,23 @@ namespace App {
       controller: app.Controllers.HomeController,
       controllerAs: 'vm'
     })
+
     .when('/becomeAHost', {
       templateUrl: '/templates/becomeAHost.html',
       controller: app.Controllers.HomeController,
       controllerAs:'vm'
+    })
+
+
+    .when('/login', {
+      templateUrl: '/templates/login.html',
+      controller: app.Controllers.UserController,
+      controllerAs: 'vm'
+    })
+    .when('/register', {
+      templateUrl: '/templates/register.html',
+      controller: app.Controllers.UserController,
+      controllerAs: 'vm'
     })
 
     .otherwise({ redirectTo: '/' });

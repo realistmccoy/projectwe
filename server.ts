@@ -5,6 +5,7 @@ import favicon = require('serve-favicon');
 import logger = require('morgan');
 import cookieParser = require('cookie-parser');
 import bodyParser = require('body-parser');
+import passport = require('passport');
 
 const app = express();
 ////////////////////////
@@ -12,12 +13,15 @@ const app = express();
 ////////////////////
 import mongoose = require('mongoose');
 require('./models/hostModel');
+require('./models/users');
+require('./config/passport');
 
-if (process.env.NODE_ENV === 'test')
-  mongoose.connect("mongodb://localhost/bookStore-test");
-else
-  mongoose.connect("mongodb://localhost/bookStore");
 
+
+
+
+
+mongoose.connect(process.env.MONGO_URL);
 
 // view engine setup
 app.set('views', './views');
@@ -37,6 +41,11 @@ app.use(cookieParser());
 
 app.use(express.static('./public'));
 app.use('/scripts', express.static('bower_components'));
+
+////////////////////////////////
+////////Routes
+////////////////////////////////
+
 
 
 app.get('/*', function(req, res, next) {
