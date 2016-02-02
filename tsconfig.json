@@ -22,7 +22,6 @@
     "compileOnSave": true,
     "buildOnSave": false,
     "files": [
-        "models/hostModel.ts",
         "models/Rental.ts",
         "models/users.ts",
         "public/javascript/app.ts",
@@ -54,6 +53,6 @@
         "typings/tsd.d.ts"
     ],
     "atom": {
-        "rewriteTsconfig": true
+        "rewriteTsconfig": false
     }
 }
