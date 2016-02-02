@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-"use strict";
-var app;
-(function (app) {
-    var Services;
-    (function (Services) {
-        var HomeService = (function () {
-            function HomeService() {
-            }
-            return HomeService;
-        }());
-        Services.HomeService = HomeService;
-        angular.module('app').service('HomeService', HomeService);
-    })(Services = app.Services || (app.Services = {}));
-})(app || (app = {}));
-=======
 "use strict";
 var app;
 (function (app) {
@@ -47,4 +31,3 @@ var app;
         angular.module('app').service('HomeService', HomeService);
     })(Services = app.Services || (app.Services = {}));
 })(app || (app = {}));
->>>>>>> 94774f94bcfce18afc99f9444c14b9869b354d91
