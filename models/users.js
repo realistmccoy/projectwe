@@ -7,7 +7,7 @@ var UserSchema = new mongoose.Schema({
     email: { type: String, unique: true, lowercase: true },
     passwordHash: String,
     salt: String,
-    rentalPosts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'RentalPost' }]
+    rentalPosts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Rental' }]
 });
 UserSchema.method('setPassword', function (password) {
     this.salt = crypto.randomBytes(16).toString('hex');
