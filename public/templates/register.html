@@ -1,4 +1,12 @@
-<form class="" action="index.html" method="post">
-  
-  <button type="button" name="button"></button>
+<h1>Sign Up</h1>
+<form ng-submit="vm.register()">
+  <label>UserName:</label>
+  <input ng-model="vm.user.username" type="text"/>
+  <label>Email: </label>
+  <input ng-model="vm.user.email" type="text"/>
+  <label>Password: </label>
+  <input ng-model="vm.user.password" type="text"/>
+  <label>Confirm Password: </label>
+  <input ng-model="vm.user.cpassword" type="text"/>
+  <button type="submit" name="button">Register</button>
 </form>

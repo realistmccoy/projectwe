@@ -5,59 +5,14 @@
   "path": "typings",
   "bundle": "typings/tsd.d.ts",
   "installed": {
-    "serve-static/serve-static.d.ts": {
-      "commit": "e69fe60f2d6377ea4fae539493997b098f52cad1"
-    },
-    "mime/mime.d.ts": {
-      "commit": "e69fe60f2d6377ea4fae539493997b098f52cad1"
-    },
-    "express/express.d.ts": {
-      "commit": "e69fe60f2d6377ea4fae539493997b098f52cad1"
-    },
-    "mongoose/mongoose.d.ts": {
-      "commit": "717a5fdb079f8dd7c19f1b22f7f656dd990f0ccf"
-    },
-    "node/node.d.ts": {
+    "angularjs/angular-resource.d.ts": {
       "commit": "e69fe60f2d6377ea4fae539493997b098f52cad1"
     },
     "angularjs/angular.d.ts": {
-      "commit": "717a5fdb079f8dd7c19f1b22f7f656dd990f0ccf"
+      "commit": "e69fe60f2d6377ea4fae539493997b098f52cad1"
     },
     "jquery/jquery.d.ts": {
-      "commit": "717a5fdb079f8dd7c19f1b22f7f656dd990f0ccf"
-    },
-    "angularjs/angular-resource.d.ts": {
-      "commit": "984a41af67d76b5134e0d4991a30f813dfb8561f"
-    },
-    "angularjs/angular-route.d.ts": {
-      "commit": "717a5fdb079f8dd7c19f1b22f7f656dd990f0ccf"
-    },
-    "body-parser/body-parser.d.ts": {
-      "commit": "717a5fdb079f8dd7c19f1b22f7f656dd990f0ccf"
-    },
-    "cookie-parser/cookie-parser.d.ts": {
       "commit": "e69fe60f2d6377ea4fae539493997b098f52cad1"
-    },
-    "morgan/morgan.d.ts": {
-      "commit": "e69fe60f2d6377ea4fae539493997b098f52cad1"
-    },
-    "serve-favicon/serve-favicon.d.ts": {
-      "commit": "e69fe60f2d6377ea4fae539493997b098f52cad1"
-    },
-    "express-jwt/express-jwt.d.ts": {
-      "commit": "717a5fdb079f8dd7c19f1b22f7f656dd990f0ccf"
-    },
-    "express-unless/express-unless.d.ts": {
-      "commit": "717a5fdb079f8dd7c19f1b22f7f656dd990f0ccf"
-    },
-    "jsonwebtoken/jsonwebtoken.d.ts": {
-      "commit": "717a5fdb079f8dd7c19f1b22f7f656dd990f0ccf"
-    },
-    "passport-local/passport-local.d.ts": {
-      "commit": "717a5fdb079f8dd7c19f1b22f7f656dd990f0ccf"
-    },
-    "passport/passport.d.ts": {
-      "commit": "717a5fdb079f8dd7c19f1b22f7f656dd990f0ccf"
     }
   }
 }

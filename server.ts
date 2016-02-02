@@ -11,6 +11,7 @@ const app = express();
 
 import mongoose = require('mongoose');
 require('./models/users');
+require('./models/Rental');
 require('./config/passport');
 
 mongoose.connect(process.env.MONGO_URL);
@@ -30,10 +31,12 @@ app.use(cookieParser());
 app.use(express.static('./public'));
 app.use('/scripts', express.static('bower_components'));
 
-////////////////////////////////
-////////Routes
-////////////////////////////////
+////////////////////////////////////
+// Routes
+////////////////////////////////////
 
+let userRoutes = require('./routes/userRoutes');
+app.use('/api/users', userRoutes);
 
 
 app.get('/*', function(req, res, next) {
@@ -58,7 +61,6 @@ app.use(function(req, res, next) {
 
 app.use(function(err: any, req, res, next) {
   res.status(err.status || 500);
-  if (err.name = 'CastError') err.message = 'Invalid ID';
   // Don't leak stack trace if not in development
   let error = (app.get('env') === 'development') ? err : {};
   res.send({
