@@ -9,7 +9,7 @@ let UserSchema = new mongoose.Schema({
   email: { type: String, unique: true, lowercase: true },
   passwordHash: String,
   salt: String,
-  rentalPosts: [{type: mongoose.Schema.Types.ObjectId, ref: 'RentalPost'}]
+  rentalPosts: [{type: mongoose.Schema.Types.ObjectId, ref: 'Rental'}]
   // rentalPosts: [{ type: mongoose.Schema.Types.ObjectId, ref: ''}]
 });
 
