@@ -5,6 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var app = express();
+var mongoose = require('mongoose');
+require('./models/hostModel');
+if (process.env.NODE_ENV === 'test')
+    mongoose.connect("mongodb://localhost/bookStore-test");
+else
+    mongoose.connect("mongodb://localhost/bookStore");
 app.set('views', './views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');

@@ -1,6 +1,6 @@
 'use strict';
 namespace App {
-  angular.module('app', ['ngRoute', 'ngResource'])
+  angular.module('app', ['ngRoute', 'ngResource','ui.bootstrap'])
   .config((
     $routeProvider: ng.route.IRouteProvider,
     $locationProvider: ng.ILocationProvider,
@@ -11,6 +11,12 @@ namespace App {
       controller: app.Controllers.HomeController,
       controllerAs: 'vm'
     })
+    .when('/becomeAHost', {
+      templateUrl: '/templates/becomeAHost.html',
+      controller: app.Controllers.HomeController,
+      controllerAs:'vm'
+    })
+
     .otherwise({ redirectTo: '/' });
 
     $locationProvider.html5Mode(true);

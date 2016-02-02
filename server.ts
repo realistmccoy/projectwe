@@ -7,6 +7,17 @@ import cookieParser = require('cookie-parser');
 import bodyParser = require('body-parser');
 
 const app = express();
+////////////////////////
+///models////////
+////////////////////
+import mongoose = require('mongoose');
+require('./models/hostModel');
+
+if (process.env.NODE_ENV === 'test')
+  mongoose.connect("mongodb://localhost/bookStore-test");
+else
+  mongoose.connect("mongodb://localhost/bookStore");
+
 
 // view engine setup
 app.set('views', './views');
@@ -19,6 +30,10 @@ if (process.env.NODE_ENV !== 'test') app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+
+
+
 
 app.use(express.static('./public'));
 app.use('/scripts', express.static('bower_components'));
