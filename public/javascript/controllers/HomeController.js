@@ -4,9 +4,17 @@ var app;
     var Controllers;
     (function (Controllers) {
         var HomeController = (function () {
-            function HomeController(HomeService) {
+            function HomeController(HomeService, $location) {
                 this.HomeService = HomeService;
+                this.$location = $location;
+                this.info = {};
             }
+            HomeController.prototype.createInfo = function () {
+                var _this = this;
+                this.HomeService.saveInfo(this.info).then(function (res) {
+                    _this.$location.path('/');
+                });
+            };
             return HomeController;
         }());
         Controllers.HomeController = HomeController;

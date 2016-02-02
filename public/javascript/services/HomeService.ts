@@ -22,7 +22,7 @@ namespace app.Services {
 
 
     constructor(private $resource: ng.resource.IResourceService) {
-      this.infoResource = $resource('/info/:id', null,
+      this.infoResource = $resource('/api/info/:id', null,
     {
       'update': {method:'PUT'}
     });

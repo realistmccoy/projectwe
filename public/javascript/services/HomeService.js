@@ -6,7 +6,7 @@ var app;
         var HomeService = (function () {
             function HomeService($resource) {
                 this.$resource = $resource;
-                this.infoResource = $resource('/info/:id', null, {
+                this.infoResource = $resource('/api/info/:id', null, {
                     'update': { method: 'PUT' }
                 });
             }

@@ -2,8 +2,18 @@
 namespace app.Controllers {
   export class HomeController {
 
-    constructor(private HomeService: app.Services.HomeService) {
+    public info = {};
 
+    public createInfo(){
+      this.HomeService.saveInfo(this.info).then((res)=>{
+        this.$location.path('/')
+      })
+    }
+
+    constructor(
+      private HomeService: app.Services.HomeService,
+      private $location: ng.ILocationService
+    ) {
     }
   }
 

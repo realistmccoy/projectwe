@@ -21,7 +21,9 @@ app.use(cookieParser());
 app.use(express.static('./public'));
 app.use('/scripts', express.static('bower_components'));
 var userRoutes = require('./routes/userRoutes');
+var infoRoutes = require('./routes/infoRoutes');
 app.use('/api/users', userRoutes);
+app.use('/api/info', infoRoutes);
 app.get('/*', function (req, res, next) {
     if (/.js|.html|.css|templates|javascript/.test(req.path))
         return next({ status: 404, message: 'Not Found' });
