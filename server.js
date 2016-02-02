@@ -5,11 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var app = express();
-var mongoose = require('mongoose');
-require('./models/hostModel');
-require('./models/users');
-require('./config/passport');
-mongoose.connect(process.env.MONGO_URL);
+require('./models/Rental');
 app.set('views', './views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -20,6 +16,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('./public'));
 app.use('/scripts', express.static('bower_components'));
+var infoRoutes = require('./routes/infoRoutes');
+app.use('/Rental', infoRoutes);
 app.get('/*', function (req, res, next) {
     if (/.js|.html|.css|templates|javascript/.test(req.path))
         return next({ status: 404, message: 'Not Found' });

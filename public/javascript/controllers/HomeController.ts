@@ -4,6 +4,8 @@ namespace app.Controllers {
 
     public info = {};
 
+
+
     public createInfo(){
       this.HomeService.saveInfo(this.info).then((res)=>{
         this.$location.path('/')

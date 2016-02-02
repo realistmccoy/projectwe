@@ -12,16 +12,16 @@ const app = express();
 ///models////////
 ////////////////////
 import mongoose = require('mongoose');
-require('./models/hostModel');
-require('./models/users');
-require('./config/passport');
+require('./models/Rental');
 
 
 
 
 
 
-mongoose.connect(process.env.MONGO_URL);
+
+
+
 
 // view engine setup
 app.set('views', './views');
@@ -45,7 +45,8 @@ app.use('/scripts', express.static('bower_components'));
 ////////////////////////////////
 ////////Routes
 ////////////////////////////////
-
+let infoRoutes = require('./routes/infoRoutes');
+app.use('/Rental',infoRoutes);
 
 
 app.get('/*', function(req, res, next) {
