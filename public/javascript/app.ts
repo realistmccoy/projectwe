@@ -11,6 +11,16 @@ namespace App {
       controller: app.Controllers.HomeController,
       controllerAs: 'vm'
     })
+    .when('/login', {
+      templateUrl: '/templates/login.html',
+      controller: app.Controllers.UserController,
+      controllerAs: 'vm'
+    })
+    .when('/register', {
+      templateUrl: '/templates/register.html',
+      controller: app.Controllers.UserController,
+      controllerAs: 'vm'
+    })
     .otherwise({ redirectTo: '/' });
 
     $locationProvider.html5Mode(true);
