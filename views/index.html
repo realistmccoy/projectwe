@@ -9,12 +9,17 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 
-<body>
+<body ng-controller="GlobalController as gc">
   <div>
     <a href="/">Home</a>
     <a href="/register">SignUp</a>
     <a href="/login">Login</a>
     <a href="/becomeAHost">Become A Host</a>
+
+    <div style="float: right">
+      <span>Logged in as: <a>{{gc.status.username}}</a></span>
+      <button ng-click="logout()">logout</button>
+    </div>
   </div>
 
   <ng-view></ng-view>
@@ -33,6 +38,7 @@
   <script src="/javascript/services/HTTPFactory.js"></script>
   <script src="/javascript/controllers/HomeController.js"></script>
   <script src="/javascript/controllers/UserController.js"></script>
+  <script src="/javascript/controllers/GlobalController.js"></script>
 </body>
 
 </html>
