@@ -4,9 +4,9 @@
     <div class="btn-group">
       <label style="font: Bold;">Home Type</label>
       <br>
-    <label class="btn btn-primary" ng-model="vm.Rental.basics.homeType" type="radio" uib-btn-radio="'Left'">Apartment</label>
-    <label class="btn btn-primary" ng-model="vm.Rental.basics.homeType" type="radio" uib-btn-radio="'Middle'">House</label>
-    <label class="btn btn-primary" ng-model="vm.Rental.basics.homeType" type="radio" uib-btn-radio="'Right'">Bed & Breakfast</label>
+    <label class="btn btn-primary" ng-model="vm.info.basics.homeType" type="radio" uib-btn-radio="'Left'">Apartment</label>
+    <label class="btn btn-primary" ng-model="vm.info.basics.homeType" type="radio" uib-btn-radio="'Middle'">House</label>
+    <label class="btn btn-primary" ng-model="vm.info.basics.homeType" type="radio" uib-btn-radio="'Right'">Bed & Breakfast</label>
   </div>
 
   <br>
@@ -14,22 +14,22 @@
   <div class="btn-group">
     <label style="font: Bold;">Room Type</label>
     <br>
-  <label class="btn btn-primary" ng-model="vm.Rental.basics.RoomType" type="radio" uib-btn-radio="'Left">Entire Home/apt</label>
-  <label class="btn btn-primary" ng-model="vm.Rental.basics.RoomType" type="radio" uib-btn-radio="'Middle'">Private</label>
-  <label class="btn btn-primary" ng-model="vm.Rental.basics.RoomType" type="radio" uib-btn-radio="'Right">Shared Room</label>
+  <label class="btn btn-primary" ng-model="vm.info.basics.roomType" type="radio" uib-btn-radio="'Left'">Entire Home/apt</label>
+  <label class="btn btn-primary" ng-model="vm.info.basics.roomType" type="radio" uib-btn-radio="'Middle'">Private</label>
+  <label class="btn btn-primary" ng-model="vm.info.basics.roomType" type="radio" uib-btn-radio="'Right'">Shared Room</label>
 
 </div>
 
 
   <div class="form-group">
   <label for="inputlg">Acommadates</label>
-  <input ng-model="vm.Rental.basics.numGuests" class="form-control input-lg" id="inputlg" type="number">
+  <input ng-model="vm.info.basics.numGuests" class="form-control input-lg" id="inputlg" type="number">
 </div>
 
 
 <label>Description</label>
   <div class="form-group">
-     <input type="text" class="form-control"ng-model="vm.Rental.basics.description">
+     <input type="text" class="form-control"ng-model="vm.info.basics.description">
    </div>
 
 
@@ -37,26 +37,26 @@
    <!--  Google maps here maybe?-->
    <label>Location</label>
      <div class="form-group">
-        <input type="text" class="form-control" ng-model="vm.Rental.basics.location">
+        <input type="text" class="form-control" ng-model="vm.info.basics.location">
       </div>
 
 
 <label>Pictures</label>
 <div>
-  <input type="text"  ng-model="vm.Rental.basics.imgurl">
+  <input type="text"  ng-model="vm.info.basics.imgurl">
 
 </div>
 
 <label>Price</label>
 <div >
-  <input type="Number" ng-model="vm.Rental.pricing" placeholder="Mulah">
+  <input type="Number" ng-model="vm.info.pricing" placeholder="Mulah">
 </div>
 
 <label>Check-In & Out</label>
 <br />
-<input type="date" ng-model="vm.Rental.booking.checkIn">
+<input type="date" ng-model="vm.info.booking.checkIn">
 <br />
-<input type="date" ng-model="vm.Rental.booking.checkOut">
+<input type="date" ng-model="vm.info.booking.checkOut">
 
 
 
