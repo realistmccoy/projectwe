@@ -28,6 +28,7 @@
         "public/javascript/app.ts",
         "public/javascript/controllers/globalController.ts",
         "public/javascript/controllers/HomeController.ts",
+        "public/javascript/controllers/RentalDetailsController.ts",
         "public/javascript/controllers/UserController.ts",
         "public/javascript/services/HomeService.ts",
         "public/javascript/services/HTTPFactory.ts",
