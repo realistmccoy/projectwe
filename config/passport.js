@@ -3,7 +3,6 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 var LocalStrategy = require('passport-local').Strategy;
 var User = mongoose.model('User');
-var Rental = mongoose.model('Rental');
 passport.serializeUser(function (user, done) {
     done(null, user);
 });
