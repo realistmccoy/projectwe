@@ -7,15 +7,16 @@ import cookieParser = require('cookie-parser');
 import bodyParser = require('body-parser');
 import passport = require('passport');
 
+
 const app = express();
 ////////////////////////
 ///models////////
 ////////////////////
 import mongoose = require('mongoose');
+
 require('./models/users');
 require('./models/Rental');
 require('./config/passport');
-
 
 mongoose.connect(process.env.MONGO_URL);
 
@@ -34,6 +35,7 @@ app.use(cookieParser());
 app.use(express.static('./public'));
 app.use('/scripts', express.static('bower_components'));
 
+
 ////////////////////////////////////
 // Routes
 ////////////////////////////////////
@@ -42,6 +44,9 @@ let userRoutes = require('./routes/userRoutes');
 let infoRoutes = require('./routes/infoRoutes');
 app.use('/api/users', userRoutes);
 app.use('/api/info', infoRoutes);
+
+
+
 
 
 app.get('/*', function(req, res, next) {

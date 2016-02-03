@@ -10,6 +10,8 @@ var app;
                 this.status = { _id: null, email: null, username: null };
                 this.UserRegisterResource = $resource('/api/users/register');
                 this.UserLoginResource = $resource('/api/users/login');
+                if (this.getToken())
+                    this.setUser();
             }
             UserService.prototype.register = function (user) {
                 return this.UserRegisterResource.save(user).$promise;
@@ -30,7 +32,7 @@ var app;
                 var u = JSON.parse(atob(this.$window.localStorage.getItem('token').split('.')[1]));
                 this.status._id = u._id;
                 this.status.email = u.email;
-                this.status.username - u.username;
+                this.status.username = u.username;
             };
             ;
             UserService.prototype.removeUser = function () {
