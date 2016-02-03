@@ -25,17 +25,17 @@ router.post('/', auth, function (req, res, next) {
     console.log('2');
     newInfo.createdBy = req['payload']._id;
     console.log('3');
-    newInfo.save(function (err, info) {
+    newInfo.save(function (err, p) {
         console.log('4');
         if (err)
             return next(err);
         console.log('5');
-        user.update({ _id: req['payload']._id }, { $push: { 'info': info._id } }, function (err, result) {
+        Rental.update({ _id: req['payload']._id }, { $push: { 'info': p._id } }, function (err, result) {
             console.log('6');
             if (err)
                 return next(err);
             console.log('7');
-            res.send(info);
+            res.send(p);
             console.log('8');
         });
     });

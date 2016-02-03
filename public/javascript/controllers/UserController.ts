@@ -14,8 +14,8 @@ namespace app.Controllers{
       })
     }
 
-    public login(user){
-      this.UserService.login(user).then((res) => {
+    public login(){
+      this.UserService.login(this.user).then((res) => {
         this.UserService.setToken(res.token);
         this.UserService.setUser();
         this.$location.path('/');

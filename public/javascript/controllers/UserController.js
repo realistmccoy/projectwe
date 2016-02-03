@@ -19,9 +19,9 @@ var app;
                     _this.$location.path('/login');
                 });
             };
-            UserController.prototype.login = function (user) {
+            UserController.prototype.login = function () {
                 var _this = this;
-                this.UserService.login(user).then(function (res) {
+                this.UserService.login(this.user).then(function (res) {
                     _this.UserService.setToken(res.token);
                     _this.UserService.setUser();
                     _this.$location.path('/');

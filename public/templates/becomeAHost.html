@@ -1,30 +1,71 @@
 <div class="container" >
-
-
-
-
-<!--  ui bs-->
 <form  ng-submit = "vm.createInfo()">
+
     <div class="btn-group">
       <label style="font: Bold;">Home Type</label>
       <br>
-    <label class="btn btn-primary" ng-model="vm.Rental.homeType" type="radio" uib-btn-radio="'Apartment'">Apartment</label>
-    <label class="btn btn-primary" ng-model="vm.Rental.homeType" type="radio" uib-btn-radio="'House'">House</label>
-    <label class="btn btn-primary" ng-model="vm.Rental.homeType" type="radio" uib-btn-radio="'Bed & breakfast'">Bed & Breakfast</label>
+    <label class="btn btn-primary" ng-model="vm.Rental.basics.homeType" type="radio" uib-btn-radio="'Left'">Apartment</label>
+    <label class="btn btn-primary" ng-model="vm.Rental.basics.homeType" type="radio" uib-btn-radio="'Middle'">House</label>
+    <label class="btn btn-primary" ng-model="vm.Rental.basics.homeType" type="radio" uib-btn-radio="'Right'">Bed & Breakfast</label>
   </div>
 
   <br>
-  <label>Acommadates</label>
-  <br>
+
+  <div class="btn-group">
+    <label style="font: Bold;">Room Type</label>
+    <br>
+  <label class="btn btn-primary" ng-model="vm.Rental.basics.RoomType" type="radio" uib-btn-radio="'Left">Entire Home/apt</label>
+  <label class="btn btn-primary" ng-model="vm.Rental.basics.RoomType" type="radio" uib-btn-radio="'Middle'">Private</label>
+  <label class="btn btn-primary" ng-model="vm.Rental.basics.RoomType" type="radio" uib-btn-radio="'Right">Shared Room</label>
+
+</div>
+
+
+  <div class="form-group">
+  <label for="inputlg">Acommadates</label>
+  <input ng-model="vm.Rental.basics.numGuests" class="form-control input-lg" id="inputlg" type="number">
+</div>
+
+
+<label>Description</label>
+  <div class="form-group">
+     <input type="text" class="form-control"ng-model="vm.Rental.basics.description">
+   </div>
+
+
+
+   <!--  Google maps here maybe?-->
+   <label>Location</label>
+     <div class="form-group">
+        <input type="text" class="form-control" ng-model="vm.Rental.basics.location">
+      </div>
+
+
+<label>Pictures</label>
+<div>
+  <input type="text"  ng-model="vm.Rental.basics.imgurl">
+
+</div>
+
+<label>Price</label>
+<div >
+  <input type="Number" ng-model="vm.Rental.pricing" placeholder="Mulah">
+</div>
+
+<label>Check-In & Out</label>
+<br />
+<input type="date" ng-model="vm.Rental.booking.checkIn">
+<br />
+<input type="date" ng-model="vm.Rental.booking.checkOut">
+
+
+
+<br>
+
+<button type="submit" name="button">Submit</button>
 
 
 
 
-
-
-
-<button type="submit">Submit</button>
 </form>
-
-
-    </div>
+</div>

@@ -18,19 +18,7 @@ require('./models/users');
 require('./models/Rental');
 require('./config/passport');
 
-
-
-
 mongoose.connect(process.env.MONGO_URL);
-
-
-
-
-
-
-
-
-
 
 // view engine setup
 app.set('views', './views');
@@ -82,6 +70,7 @@ app.use(function(req, res, next) {
 // error handlers
 
 app.use(function(err: any, req, res, next) {
+  console.log(err)
   res.status(err.status || 500);
   // Don't leak stack trace if not in development
   let error = (app.get('env') === 'development') ? err : {};

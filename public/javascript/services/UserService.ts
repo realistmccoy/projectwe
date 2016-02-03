@@ -25,11 +25,11 @@ namespace app.Services{
       this.$window.localStorage.removeItem('token');
     }
 
-    public setUser(){
+    public setUser() {
       let u = JSON.parse( atob( this.$window.localStorage.getItem('token').split('.')[1] ) );
       this.status._id = u._id;
       this.status.email = u.email;
-      this.status.username - u.username;
+      this.status.username = u.username;
     };
 
     public removeUser(){
@@ -43,7 +43,8 @@ namespace app.Services{
       private $window: ng.IWindowService
     ){
       this.UserRegisterResource = $resource('/api/users/register');
-      this.UserLoginResource = $resource('/api/users/login')
+      this.UserLoginResource = $resource('/api/users/login');
+      if (this.getToken()) this.setUser();
       }
   }
   angular.module('app').service('UserService', UserService);
