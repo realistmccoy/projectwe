@@ -26,6 +26,7 @@ namespace App {
       controller: app.Controllers.UserController,
       controllerAs: 'vm'
     })
+
     .otherwise({ redirectTo: '/' });
 
     $locationProvider.html5Mode(true);

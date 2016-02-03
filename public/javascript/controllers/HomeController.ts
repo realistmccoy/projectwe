@@ -1,4 +1,4 @@
-'use strict';
+``'use strict';
 namespace app.Controllers {
   export class HomeController {
 

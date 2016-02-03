@@ -3,13 +3,15 @@
 import express = require("express");
 import jwt = require('express-jwt');
 let mongoose = require("mongoose");
+
 let router = express.Router();
 let Rental = mongoose.model('Rental');
 let user = mongoose.model('User');
 let auth = jwt({
   userProperty:'payload',
-  secret: 'SecretKey'
+  secret: process.env.JWT_SECRET
 })
+
 router.get('/',(req,res,next)=>{
   Rental.find({}).exec((err, info)=>{
     if(err) return next(err);
@@ -19,16 +21,23 @@ router.get('/',(req,res,next)=>{
 
 router.get('/:id',(req,res,next)=>{
   Rental.findOne({_id: req.params.id})
+  .populate('createdBy','username')
+  .exec((err, p)=>{
+    if(err) return next(err);
+    if(!p) return next({message:'Could not find the Rental'});
+    res.send(p);
+  })
+
 })
 
-router.post('/', auth,(req,res,next)=>{
+router.post('/',auth,(req,res,next)=>{
   let newInfo = new Rental(req.body);
   newInfo.createdBy = req['payload']._id;
-  newInfo.save((err,info)=>{
+  newInfo.save((err,p)=>{
     if(err) return next(err);
-    user.update({_id:req['payload']._id},{$push:{'info':info._id}},(err,result)=>{
+    Rental.update({_id:req['payload']._id},{$push:{'info':p._id}},(err,result)=>{
       if (err) return next(err);
-      res.send(info);
+      res.send(p);
     })
   })
 })

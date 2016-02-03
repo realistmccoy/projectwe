@@ -1,28 +1,71 @@
 <div class="container" >
 <form  ng-submit = "vm.createInfo()">
 
+    <div class="btn-group">
+      <label style="font: Bold;">Home Type</label>
+      <br>
+    <label class="btn btn-primary" ng-model="vm.info.basics.homeType" type="radio" uib-btn-radio="'Left'">Apartment</label>
+    <label class="btn btn-primary" ng-model="vm.info.basics.homeType" type="radio" uib-btn-radio="'Middle'">House</label>
+    <label class="btn btn-primary" ng-model="vm.info.basics.homeType" type="radio" uib-btn-radio="'Right'">Bed & Breakfast</label>
+  </div>
 
-    <label>House Type</label>
+  <br>
+
+  <div class="btn-group">
+    <label style="font: Bold;">Room Type</label>
     <br>
-    <div class="btn-group" data-toggle="buttons">
-      <label class="btn btn-primary active">
-        <input ng-model="vm.hostModel.apartment" type="radio" name="options" id="option1" autocomplete="off" checked>Apartment
-      </label>
-      <label class="btn btn-primary">
-        <input ng-model="vm.hostModel.house" type="radio" name="options" id="option2" autocomplete="off"> House
-      </label>
-      <label class="btn btn-primary">
-        <input ng-model="vm.hostModel.bnb" type="radio" name="options" id="option3" autocomplete="off"> Bed & Breakfast
-      </label>
-      <label class="btn btn-primary">
-        <input ng-model="vm.hostModel.other" type="radio" name="options" id="option4" autocomplete="off"> Other
-      </label>
-    </div>
-    <br>
+  <label class="btn btn-primary" ng-model="vm.info.basics.roomType" type="radio" uib-btn-radio="'Left'">Entire Home/apt</label>
+  <label class="btn btn-primary" ng-model="vm.info.basics.roomType" type="radio" uib-btn-radio="'Middle'">Private</label>
+  <label class="btn btn-primary" ng-model="vm.info.basics.roomType" type="radio" uib-btn-radio="'Right'">Shared Room</label>
+
+</div>
 
 
-    </div>
+  <div class="form-group">
+  <label for="inputlg">Acommadates</label>
+  <input ng-model="vm.info.basics.numGuests" class="form-control input-lg" id="inputlg" type="number">
+</div>
+
+
+<label>Description</label>
+  <div class="form-group">
+     <input type="text" class="form-control"ng-model="vm.info.basics.description">
+   </div>
+
+
+
+   <!--  Google maps here maybe?-->
+   <label>Location</label>
+     <div class="form-group">
+        <input type="text" class="form-control" ng-model="vm.info.basics.location">
+      </div>
+
+
+<label>Pictures</label>
+<div>
+  <input type="text"  ng-model="vm.info.basics.imgurl">
+
+</div>
+
+<label>Price</label>
+<div >
+  <input type="Number" ng-model="vm.info.pricing" placeholder="Mulah">
+</div>
+
+<label>Check-In & Out</label>
+<br />
+<input type="date" ng-model="vm.info.booking.checkIn">
+<br />
+<input type="date" ng-model="vm.info.booking.checkOut">
+
+
+
+<br>
+
+<button type="submit" name="button">Submit</button>
+
 
 
 
 </form>
+</div>

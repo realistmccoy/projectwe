@@ -2,6 +2,7 @@ import passport = require('passport');
 import mongoose = require('mongoose');
 let LocalStrategy = require('passport-local').Strategy;
 let User = mongoose.model('User');
+let Rental = mongoose.model('Rental');
 
 passport.serializeUser(function(user, done) {
   done(null, user);

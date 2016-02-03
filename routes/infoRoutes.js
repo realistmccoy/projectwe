@@ -7,7 +7,7 @@ var Rental = mongoose.model('Rental');
 var user = mongoose.model('User');
 var auth = jwt({
     userProperty: 'payload',
-    secret: 'SecretKey'
+    secret: process.env.JWT_SECRET
 });
 router.get('/', function (req, res, next) {
     Rental.find({}).exec(function (err, info) {
@@ -17,18 +17,26 @@ router.get('/', function (req, res, next) {
     });
 });
 router.get('/:id', function (req, res, next) {
-    Rental.findOne({ _id: req.params.id });
+    Rental.findOne({ _id: req.params.id })
+        .populate('createdBy', 'username')
+        .exec(function (err, p) {
+        if (err)
+            return next(err);
+        if (!p)
+            return next({ message: 'Could not find the Rental' });
+        res.send(p);
+    });
 });
 router.post('/', auth, function (req, res, next) {
     var newInfo = new Rental(req.body);
     newInfo.createdBy = req['payload']._id;
-    newInfo.save(function (err, info) {
+    newInfo.save(function (err, p) {
         if (err)
             return next(err);
-        user.update({ _id: req['payload']._id }, { $push: { 'info': info._id } }, function (err, result) {
+        Rental.update({ _id: req['payload']._id }, { $push: { 'info': p._id } }, function (err, result) {
             if (err)
                 return next(err);
-            res.send(info);
+            res.send(p);
         });
     });
 });
