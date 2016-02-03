@@ -17,26 +17,26 @@ router.get('/', function (req, res, next) {
     });
 });
 router.get('/:id', function (req, res, next) {
-    Rental.findOne({ _id: req.params.id });
-});
-router.post('/', auth, function (req, res, next) {
-    console.log('1');
-    var newInfo = new Rental(req.body);
-    console.log('2');
-    newInfo.createdBy = req['payload']._id;
-    console.log('3');
-    newInfo.save(function (err, p) {
-        console.log('4');
+    Rental.findOne({ _id: req.params.id })
+        .populate('createdBy', 'username')
+        .exec(function (err, p) {
         if (err)
             return next(err);
-        console.log('5');
+        if (!p)
+            return next({ message: 'Could not find the Rental' });
+        res.send(p);
+    });
+});
+router.post('/', auth, function (req, res, next) {
+    var newInfo = new Rental(req.body);
+    newInfo.createdBy = req['payload']._id;
+    newInfo.save(function (err, p) {
+        if (err)
+            return next(err);
         Rental.update({ _id: req['payload']._id }, { $push: { 'info': p._id } }, function (err, result) {
-            console.log('6');
             if (err)
                 return next(err);
-            console.log('7');
             res.send(p);
-            console.log('8');
         });
     });
 });

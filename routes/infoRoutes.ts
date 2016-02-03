@@ -21,24 +21,23 @@ router.get('/',(req,res,next)=>{
 
 router.get('/:id',(req,res,next)=>{
   Rental.findOne({_id: req.params.id})
+  .populate('createdBy','username')
+  .exec((err, p)=>{
+    if(err) return next(err);
+    if(!p) return next({message:'Could not find the Rental'});
+    res.send(p);
+  })
+
 })
 
 router.post('/',auth,(req,res,next)=>{
-  console.log('1')
   let newInfo = new Rental(req.body);
-  console.log('2')
   newInfo.createdBy = req['payload']._id;
-  console.log('3')
   newInfo.save((err,p)=>{
-    console.log('4')
     if(err) return next(err);
-    console.log('5')
     Rental.update({_id:req['payload']._id},{$push:{'info':p._id}},(err,result)=>{
-      console.log('6')
       if (err) return next(err);
-      console.log('7')
       res.send(p);
-      console.log('8')
     })
   })
 })
